@@ -37,6 +37,8 @@ html {
 .grid__row {
   display: flex;
   flex-wrap: wrap;
+  margin-left: -12px;
+  margin-right: -12px;
 }
 /* Test */
 .grid__column-2 {
@@ -96,7 +98,7 @@ html {
   background-color: var(--white-color);
   justify-content: center;
   align-items: center;
-  display: flex;
+  display: inline-flex;
 }
 
 .btn.btn--primary {
@@ -141,4 +143,25 @@ html {
   z-index: 1;
   border-radius: 5px;
   animation: growth linear 0.1s;
+}
+
+/* Selection */
+.select-input {
+  min-width: 200px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 3px;
+  background-color: var(--white-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.select-input__label {
+  font-size: 1.6rem;
+}
+.select-input__icon {
+  font-size: 1.4rem;
+  color: rgba(131, 131, 131, 131);
+  position: relative;
+  top: 1px;
 }
