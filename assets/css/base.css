@@ -11,6 +11,8 @@
   --header-with-search-height: calc(
     var(--header-height) - var(--navbar-height)
   );
+
+  --footer-text: #737373;
 }
 
 * {
@@ -169,4 +171,39 @@ html {
   color: rgba(131, 131, 131, 131);
   position: relative;
   top: 1px;
+}
+
+/* Pagination */
+
+.pagination {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+}
+.pagination__item {
+  font-size: 2rem;
+  line-height: 35px;
+  margin: 0 30px;
+}
+.pagination__item-link {
+  font-weight: 500;
+  text-decoration: none;
+  color: #939393;
+}
+.pagination__item-icon {
+  font-size: 1.5rem;
+}
+.pagination__item--active {
+  background-color: var(--primary-color);
+  margin: 0 10px;
+  border-radius: 3px;
+}
+.pagination__item--active .pagination__item-link {
+  color: var(--white-color);
+  line-height: 30px;
+  padding: 0 20px;
+}
+.pagination__item--active:hover {
+  background-color: #fc6446;
 }

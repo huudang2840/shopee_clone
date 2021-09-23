@@ -168,6 +168,8 @@
   border-radius: 2px;
   display: none;
   animation: fadeIn ease-in 0.5s;
+  z-index: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .header__qr::before {
@@ -391,6 +393,7 @@
   box-shadow: 0 0 10px #ccc;
   transform-origin: calc(100% - 32px) top;
   animation: headerNotifyGrowth ease-in 0.25s;
+  z-index: 20;
 }
 .header__cart-list::after {
   cursor: pointer;
@@ -428,6 +431,8 @@
 .header__cart-list--have-cart-list {
   list-style: none;
   padding-left: 0;
+  overflow-y: auto;
+  max-height: 56vh;
 }
 .header__cart-list--have-cart-list-item {
   display: flex;
@@ -623,6 +628,7 @@
   border-radius: 3px;
   overflow: hidden;
   box-shadow: 0 0 3px #ccc;
+  z-index: 20;
 }
 .header__search-option-item {
   background-color: var(--white-color);
@@ -929,8 +935,24 @@
 /* App container */
 
 /* Product item */
+.home-product {
+  margin-bottom: 12px;
+}
 .home-product__item {
+  display: block;
+  text-decoration: none;
+  position: relative;
   background-color: var(--white-color);
+  margin-top: 15px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  transition: transform ease-in;
+  will-change: transform;
+}
+.home-product__item:hover {
+  box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
 }
 .home-product__item-img {
   padding-top: 100%;
@@ -1045,16 +1067,244 @@
   display: flex;
   justify-content: end;
   font-size: 1.3rem;
-  padding: 10px 10px 12px 0;
+  padding: 10px 10px 8px 0;
   color: #595959;
   font-weight: 300;
 }
 .home-product__favorite {
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: 400;
+  background-color: var(--primary-color);
+  top: 2%;
+  left: -4px;
+  color: var(--white-color);
+  padding: 0 4px;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  line-height: 1.8rem;
+}
+.home-product__favorite::after {
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0;
+  border-top: 4px solid #913113;
+  border-left: 4px solid transparent;
+}
+.home-product__favorite i {
+  font-size: 1rem;
 }
 
 .home-product__sale-off {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  height: 36px;
+  width: 40px;
+  right: 0;
+  background-color: rgb(255, 216, 57, 0.95);
+  padding-top: 3px;
+  padding-bottom: 37px;
+}
+.home-product__sale-off::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  top: 100%;
+  right: 0;
+  border-width: 0 20px 4px;
+  border-color: transparent rgb(255, 216, 57, 0.95) transparent
+    rgb(255, 216, 57, 0.95);
 }
 .home-product__sale-off-percent {
+  font-size: 1.3rem;
+  list-style: 1.3rem;
+  font-weight: 400;
+  color: #f04d03;
 }
 .home-product__sale-off-label {
+  font-size: 1.4rem;
+  list-style: 1.4rem;
+  font-weight: 500;
+  color: var(--white-color);
+  text-transform: uppercase;
+}
+
+/* Pagination */
+.home-pagination {
+  margin-top: 45px;
+  margin-bottom: 60px;
+}
+
+/* Footer */
+.footer {
+  border-top: 5px solid var(--primary-color);
+}
+.footer__customer-list,
+.footer__about-list,
+.footer__payment-list,
+.footer__shipping-list,
+.footer__contact-list,
+.footer__download-list {
+  list-style: none;
+  color: var(--footer-text);
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding-left: 0;
+}
+
+.footer__customer-heading,
+.footer__about-heading,
+.footer__payment-heading,
+.footer__shipping-heading,
+.footer__contact-heading,
+.footer__download-heading {
+  margin: 45px 0 25px 0;
+}
+
+.footer__customer-item,
+.footer__about-item,
+.footer__payment-item,
+.footer__shipping-item,
+.footer__contact-item,
+.footer__download-item {
+  margin-bottom: 12px;
+}
+.footer__customer-item-link,
+.footer__about-item-link,
+.footer__payment-item-link,
+.footer__shipping-item-link,
+.footer__contact-item-link,
+.footer__download-item-link {
+  color: var(--footer-text);
+  text-decoration: none;
+  text-transform: none;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.footer__customer-item-link:hover,
+.footer__about-item-link:hover,
+.footer__payment-item-link:hover,
+.footer__shipping-item-link:hover,
+.footer__contact-item-link:hover,
+.footer__download-item-link:hover {
+  color: var(--primary-color);
+}
+.footer_payment-wrap,
+.footer_shipping-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.footer__payment-visa {
+  content: "";
+  background-position: 16.5rem -0.5rem;
+  background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/4bdefde103e8aa245cd17511adde9f89.png);
+  width: 72px;
+  height: 40px;
+}
+.footer__payment-master {
+  content: "";
+  background-position: 412rem -6em;
+  background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/4bdefde103e8aa245cd17511adde9f89.png);
+  width: 72px;
+  height: 40px;
+}
+.footer__payment-jcb {
+  content: "";
+  background-position: 48rem -5.8rem;
+  background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/4bdefde103e8aa245cd17511adde9f89.png);
+  width: 72px;
+  height: 40px;
+}
+.footer__payment-cod {
+  content: "";
+  background-position: 108rem 8.8rem;
+  background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/4bdefde103e8aa245cd17511adde9f89.png);
+  width: 72px;
+  height: 40px;
+}
+
+.footer__payment-installment {
+  content: "";
+  background-position: 61rem -9.6rem;
+  background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/4bdefde103e8aa245cd17511adde9f89.png);
+  width: 72px;
+  height: 40px;
+}
+
+.footer__shipping-heading {
+  margin-top: 20px;
+}
+.footer__shipping-shopee {
+  background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/4bdefde103e8aa245cd17511adde9f89.png);
+  content: "";
+  background-position: 21rem -2.6rem;
+  width: 72px;
+  height: 40px;
+  background-size: 47rem 14rem;
+}
+
+.footer__shipping-ghtk {
+  background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/4bdefde103e8aa245cd17511adde9f89.png);
+  content: "";
+  background-position: 62rem -4.6rem;
+  width: 72px;
+  height: 40px;
+}
+.footer__shipping-vnpost {
+  background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/4bdefde103e8aa245cd17511adde9f89.png);
+  content: "";
+  background-position: 149rem -10.6rem;
+  width: 72px;
+  height: 40px;
+}
+.footer__shipping-jt {
+  background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/4bdefde103e8aa245cd17511adde9f89.png);
+  content: "";
+  background-position: 84rem 0.4rem;
+  width: 72px;
+  height: 40px;
+}
+.footer__shipping-ninja {
+  background-image: url(https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/4bdefde103e8aa245cd17511adde9f89.png);
+  content: "";
+  background-position: 111rem -0.5rem;
+  width: 72px;
+  height: 40px;
+}
+
+.footer__contact-item-link {
+  width: 2rem;
+  text-align: center;
+}
+.footer__contact-item-link:hover .footer__contact-item-icon {
+  color: var(--footer-text);
+}
+.footer__contact-item-icon {
+  font-size: 1.6rem;
+  margin-right: 6px;
+}
+.footer__download-wrap {
+  display: flex;
+}
+.footer__download-qr {
+  width: 86px;
+  height: 86px;
+  border: 1px solid var(--footer-text);
+  margin-right: 12px;
+}
+.footer__download-qr a img {
+  width: 84px;
+  height: 84px;
+}
+.footer__download-item-appstore,
+.footer__download-item-ggplay,
+.footer__download-item-appgallery {
+  width: 100%;
+  height: 15px;
+}
+
+.footer_row {
+  border-bottom: 1px solid var(--footer-text);
 }
