@@ -262,6 +262,7 @@
                <i class="header__search-btn-icon fas fa-search"></i>
               </button>
             </div>
+
             
             <div class="header__cart">
               <div class="header__cart-wrap">
@@ -270,7 +271,9 @@
                 </i>
                 
 
-                <div class="header__cart-list ">
+              <input type="checkbox" hidden id="mobile-cart-checkbox" class="header-mobile-cart">
+
+                <label class="header__cart-list" for="mobile-cart-checkbox">
                   <div class="header__cart-list--no-cart">
                     <img src="./assets/img/no-cart.png" alt="" class="header__cart-list-img--no-cart">  
                     <span class="header__no-cart-msg">Chưa có sản phẩm</span>
@@ -488,7 +491,7 @@
                     <button class="btn btn--primary header__cart-list-view">Xem giỏ hàng</button>
                   </div>
               
-                </div>
+                </label>
               </div>
             
             </div>
