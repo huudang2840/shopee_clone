@@ -12,6 +12,8 @@
     var(--header-height) - var(--navbar-height)
   );
 
+  --header-sort-bar-height: 46px;
+
   --footer-text: #737373;
 }
 
@@ -24,16 +26,6 @@ html {
   line-height: 1.6rem;
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
-}
-
-.grid {
-  width: 1200px;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.grid__full-width {
-  width: 100%;
 }
 
 .grid__row {
@@ -132,6 +124,17 @@ html {
   right: 0;
   display: flex;
   animation: fadeIn linear 0.1s;
+  z-index: 100;
+}
+.modal-mobile-list {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  animation: fadeIn linear 0.1s;
+  z-index: 100;
 }
 
 .modal__overlay {
@@ -180,11 +183,13 @@ html {
   list-style: none;
   justify-content: center;
   align-items: center;
+  padding-left: 0;
 }
 .pagination__item {
   font-size: 2rem;
   line-height: 35px;
   margin: 0 30px;
+  padding-left: 0;
 }
 .pagination__item-link {
   font-weight: 500;
